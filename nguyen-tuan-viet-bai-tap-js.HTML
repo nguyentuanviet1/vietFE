@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>TH1</title>
+    <style>
+        div {
+            width: 50%;
+            text-align: center;
+        }
+
+        select {
+            padding: 10px;
+            margin: 20px;
+            width: 30%;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <select id="select1"  onclick="getStudent()">
+        </select>
+        <select id="select2"  ></select>
+    </div>
+</body>
+<script>
+    var students = [
+        { id: 1, name: 'tran van a', className: '.net' },
+        { id: 2, name: 'tran van b', className: '.net' },
+        { id: 3, name: 'tran van c', className: 'angular' },
+        { id: 4, name: 'tran van d', className: 'angular' },
+        { id: 5, name: 'tran van e', className: 'java' },
+        { id: 6, name: 'tran van f', className: 'java' },
+        { id: 7, name: 'tran van g', className: 'java' },
+        { id: 8, name: 'tran van h', className: 'test' },
+        { id: 9, name: 'tran van i', className: 'test' },
+        { id: 10, name: 'tran van j', className: 'test' }
+    ]
+    
+    var myClass = [];
+    students.forEach(student => {
+        if (myClass.lastIndexOf(student.className) == -1)
+            myClass.push(student.className);
+    });
+    myClass.forEach(className => {
+        document.getElementById("select1").innerHTML += '<option value="' + className + '">' + className + '</option>';
+    });
+    function getStudent() {
+        document.getElementById("select2").innerHTML ="";
+        students.forEach(student => {
+            if (student.className == select1.value)
+            document.getElementById("select2").innerHTML += '<option >' + student.name + '</option>';
+        });
+    }
+</script>
+
+</html>
