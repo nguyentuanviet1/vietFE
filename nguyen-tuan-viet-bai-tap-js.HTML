@@ -6,24 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>TH1</title>
     <style>
-        div {
-            width: 50%;
-            text-align: center;
-        }
-
         select {
             padding: 10px;
             margin: 20px;
-            width: 30%;
+            width: 200px;
         }
     </style>
 </head>
 
 <body>
     <div>
-        <select id="select1"  onclick="getStudent()">
-        </select>
-        <select id="select2"  ></select>
+        <select id="select1" onclick="getStudent()"></select>
+        <select id="select2"></select>
     </div>
 </body>
 <script>
@@ -39,20 +33,22 @@
         { id: 9, name: 'tran van i', className: 'test' },
         { id: 10, name: 'tran van j', className: 'test' }
     ]
-    
+
     var myClass = [];
     students.forEach(student => {
         if (myClass.lastIndexOf(student.className) == -1)
             myClass.push(student.className);
     });
+
     myClass.forEach(className => {
         document.getElementById("select1").innerHTML += '<option value="' + className + '">' + className + '</option>';
     });
+    
     function getStudent() {
-        document.getElementById("select2").innerHTML ="";
+        document.getElementById("select2").innerHTML = "";
         students.forEach(student => {
             if (student.className == select1.value)
-            document.getElementById("select2").innerHTML += '<option >' + student.name + '</option>';
+                document.getElementById("select2").innerHTML += '<option >' + student.name + '</option>';
         });
     }
 </script>
