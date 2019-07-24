@@ -43,12 +43,15 @@
     myClass.forEach(className => {
         document.getElementById("select1").innerHTML += '<option value="' + className + '">' + className + '</option>';
     });
-    
+
     function getStudent() {
         document.getElementById("select2").innerHTML = "";
-        students.forEach(student => {
-            if (student.className == select1.value)
-                document.getElementById("select2").innerHTML += '<option >' + student.name + '</option>';
+        let s = students.filter((res) => {
+            return res.className === select1.value
+        })
+        s.forEach(i => {
+
+            document.getElementById("select2").innerHTML += '<option >' + i.name + '</option>';
         });
     }
 </script>
